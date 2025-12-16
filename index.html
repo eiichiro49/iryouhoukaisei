@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>医療法等の一部を改正する法律案 - 施行期日検索アプリ</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { useState } = React;
+
+    function App() {
+      const [selectedCategory, setSelectedCategory] = useState(null);
+      const [selectedItem, setSelectedItem] = useState(null);
+
+      const data = {
+        "1": {
+          title: "地域医療構想の見直し等",
+          subtitle: "【医療法、地域における医療及び介護の総合的な確保の促進に関する法律等】",
+          items: {
+            "1-1": {
+              title: "① 地域医療構想の見直し",
+              summary: "みんなが住んでいる地域で、将来も安心して病院にかかれるように計画を立て直します。入院だけでなく、通院や自宅での治療、介護との連携も考えます。また、病院がどんな役割を持っているか報告するしくみを作り、市町村も話し合いに参加します。",
+              content: `地域医療構想について、2040年頃を見据えた医療提供体制を確保するため、以下の見直しを行う。
+・病床のみならず、入院・外来・在宅医療、介護との連携を含む将来の医療提供体制全体の構想とする。
+・地域医療構想調整会議の構成員として市町村を明確化し、在宅医療や介護との連携等を議題とする場合の参画を求める。
+・医療機関機能（高齢者救急・地域急性期機能、在宅医療等連携機能、急性期拠点機能等）報告制度を設ける。`,
+              additionalInfo: [
+                "厚生労働大臣は、医療計画で定める都道府県において達成すべき五疾病・六事業及び在宅医療の確保の目標の設定並びに当該目標の達成のための実効性のある取組及び当該取組の効果に係る評価の実施が総合的に推進されるよう、都道府県に対し、必要な助言を行うものとする。",
+                "都道府県は、その地域の実情を踏まえ、医療機関がその経営の安定を図るために緊急に病床数を削減することを支援する事業を行うことができることとするとともに、医療機関が当該事業に基づき病床数を削減したときは、厚生労働省令で定める場合を除き、医療計画において定める基準病床数を削減するものとする。",
+                "国は、医療保険の保険料に係る国民の負担の抑制を図りつつ持続可能な医療保険制度を構築するため、予算の範囲内において、当該事業に要する費用を負担するものとする。"
+              ],
+              isAmended: true,
+              dates: [
+                { date: "令和7年12月12日", note: "一部" },
+                { date: "令和8年10月1日", note: "一部" },
+                { date: "令和9年4月1日", note: "本則" }
+              ]
+            },
+            "1-2": {
+              title: "② オンライン診療",
+              summary: "パソコンやスマホを使って、病院に行かなくてもお医者さんに診てもらえる「オンライン診療」のルールを法律で決めます。どこでオンライン診療を受けられるかなども決めます。",
+              content: "「オンライン診療」を医療法に定義し、手続規定やオンライン診療を受ける場所を提供する施設に係る規定を整備する。",
+              dates: [
+                { date: "令和8年4月1日", note: "" }
+              ]
+            },
+            "1-3": {
+              title: "③ 美容医療",
+              summary: "美容整形などを行う病院やクリニックに、定期的に国へ報告する義務を設けます。美容医療でトラブルが増えているため、安全に治療を受けられるようにするためのルールです。",
+              content: "美容医療を行う医療機関における定期報告義務等を設ける。",
+              dates: [
+                { date: "令和7年12月12日後2年以内に政令で定める日", note: "" }
+              ]
+            }
+          }
+        },
+        "2": {
+          title: "医師偏在是正に向けた総合的な対策",
+          subtitle: "【医療法、健康保険法、総確法等】",
+          items: {
+            "2-1": {
+              title: "① 重点区域の指定",
+              summary: "お医者さんが足りない地域を「重点区域」として決め、そこで働くお医者さんに特別な手当を出せるようにします。この手当のお金は、健康保険を運営する団体が出し合います。",
+              content: "都道府県知事が、医療計画において「重点的に医師を確保すべき区域」を定めることができることとする。保険者からの拠出による当該区域の医師の手当の支給に関する事業を設ける。",
+              dates: [
+                { date: "令和8年4月1日", note: "一部" },
+                { date: "令和7年12月12日後3年以内に政令で定める日", note: "一部" }
+              ]
+            },
+            "2-2": {
+              title: "② 外来医師過多区域",
+              summary: "お医者さんが多すぎる地域では、新しくクリニックを開くときに事前に届け出が必要になります。届け出をしないと、健康保険が使える期間が短くなるなどのルールができます。",
+              content: "外来医師過多区域の無床診療所への対応を強化（新規開設の事前届出制、要請勧告公表、保険医療機関の指定期間の短縮等）する。",
+              dates: [
+                { date: "令和9年4月1日", note: "" }
+              ]
+            },
+            "2-3": {
+              title: "③ 保険医療機関の管理者",
+              summary: "健康保険が使える病院やクリニックの院長さんになるには、保険医として何年か働いた経験が必要になります。また、院長さんには守るべき責任も決められます。",
+              content: "保険医療機関の管理者について、保険医として一定年数の従事経験を持つ者であること等を要件とし、責務を課すこととする。",
+              dates: [
+                { date: "令和8年4月1日", note: "" }
+              ]
+            }
+          }
+        },
+        "3": {
+          title: "医療DXの推進",
+          subtitle: "【総確法、社会保険診療報酬支払基金法、感染症の予防及び感染症の患者に対する医療に関する法律等】",
+          items: {
+            "3-1": {
+              title: "① 電子カルテ情報共有",
+              summary: "病院同士で電子カルテの情報を共有できるようにします。これにより、別の病院に行っても、前の病院での検査結果などが分かるようになります。感染症の届け出もこのしくみで出せるようになります。",
+              content: "必要な電子診療録等情報（電子カルテ情報）の医療機関での共有等や、感染症発生届の電子カルテ情報共有サービス経由の提出を可能とする。",
+              additionalInfo: [
+                "政府は、医療情報の共有を通じた効率的な医療提供体制の構築を促進するため、電子診療録等情報の電磁的方法による提供を実現しなければならない。",
+                "政府は、令和12年12月31日までに、電子カルテの普及率が約100%となることを達成するよう、クラウド・コンピューティング・サービス関連技術その他の先端的な技術の活用を含め、医療機関の業務における情報の電子化を実現しなければならない。"
+              ],
+              isAmended: true,
+              dates: [
+                { date: "令和7年12月12日後1年以内に政令で定める日", note: "一部" },
+                { date: "令和7年12月12日後3年以内に政令で定める日", note: "一部" }
+              ]
+            },
+            "3-2": {
+              title: "② 医療情報の二次利用",
+              summary: "国が持っている医療や介護のデータを、研究などに使えるようにします。ただし、名前が分からないように加工したデータだけを使います。新しい薬や治療法の研究に役立てます。",
+              content: "医療情報の二次利用の推進のため、厚生労働大臣が保有する医療・介護関係のデータベースの仮名化情報の利用・提供を可能とする。",
+              dates: [
+                { date: "令和7年12月12日後3年以内に政令で定める日", note: "" }
+              ]
+            },
+            "3-3": {
+              title: "③ 社会保険診療報酬支払基金",
+              summary: "医療のデジタル化を進める中心となる組織として「社会保険診療報酬支払基金」の名前や役割を見直します。また、国は医療のデジタル化を進めるための方針を作ります。",
+              content: "社会保険診療報酬支払基金を医療DXの運営に係る母体として名称、法人の目的、組織体制等の見直しを行う。また、厚生労働大臣は、医療DXを推進するための「医療情報化推進方針」を策定する。その他公費負担医療等に係る規定を整備する。",
+              dates: [
+                { date: "令和8年4月1日", note: "一部" },
+                { date: "令和7年12月12日後1年6月以内に政令で定める日", note: "一部" },
+                { date: "令和7年12月12日後2年以内に政令で定める日", note: "一部" }
+              ]
+            }
+          }
+        },
+        "4": {
+          title: "その他",
+          subtitle: "",
+          items: {
+            "4-1": {
+              title: "① 外来医師過多区域の検討規定",
+              summary: "お医者さんが多すぎる地域のルールが始まって3年たったら、新しく開いたクリニックの数と閉じたクリニックの数を比べます。もし増えすぎていたら、新しいルールを考えます。",
+              content: "政府は、令和8年4月1日に施行される外来医師過多区域等に関する規定の施行後3年を目途として、外来医師過多区域において、新たに開設された診療所の数が廃止された診療所の数を超える区域がある場合には、当該区域における新たな診療所の開設の在り方について検討を加え、その結果に基づいて所要の措置を講ずるものとする。",
+              isAmended: true,
+              dates: [
+                { date: "施行後3年を目途", note: "検討規定" }
+              ]
+            },
+            "4-2": {
+              title: "② 医師手当事業の検討規定",
+              summary: "お医者さんが足りない地域で働くお医者さんへの手当について、健康保険を運営する団体が意見を言えるしくみを作るかどうか、これから考えていきます。",
+              content: "政府は、都道府県が医師手当事業を行うに当たり、保険者協議その他の医療保険者等が意見を述べることができる仕組みの構築について検討を加え、必要があると認めるときは、その結果に基づいて所要の措置を講ずるものとする。",
+              isAmended: true,
+              dates: [
+                { date: "―", note: "検討規定" }
+              ]
+            },
+            "4-3": {
+              title: "③ 介護・障害福祉従事者の処遇",
+              summary: "介護や障害福祉で働く人たちのお給料は他の仕事より低く、体も心も大変な仕事です。そこで、働く人を増やすために、お給料を上げる方法をすぐに考えて実行します。",
+              content: "政府は、この法律の公布後速やかに、介護・障害福祉従事者の賃金が他の業種に属する事業に従事する者と比較して低い水準にあること、介護・障害福祉従事者が従事する業務が身体的及び精神的な負担の大きいものであること等に鑑み、現役世代の保険料負担を含む国民負担の軽減を図りつつ介護・障害福祉従事者の人材の確保を図るため、介護・障害福祉従事者の適切な処遇の確保について、その処遇の状況等を踏まえて検討を加え、その結果に基づいて所要の措置を機動的に講ずるものとする。",
+              isAmended: true,
+              dates: [
+                { date: "令和7年12月12日後速やかに", note: "検討規定" }
+              ]
+            },
+            "4-4": {
+              title: "④ 医療法第30条の15の適正化",
+              summary: "平成26年に作られた医療法の第30条の15という条文の書き方を、より分かりやすく正しい表現に直します。法律の内容自体は変わりません。",
+              content: "平成26年改正法において設けた医療法第30条の15について、表現の適正化を行う。",
+              dates: [
+                { date: "―", note: "" }
+              ]
+            }
+          }
+        }
+      };
+
+      const handleCategoryClick = (key) => {
+        setSelectedCategory(selectedCategory === key ? null : key);
+        setSelectedItem(null);
+      };
+
+      const handleItemClick = (key) => {
+        setSelectedItem(selectedItem === key ? null : key);
+      };
+
+      const getItemData = () => {
+        if (!selectedCategory || !selectedItem) return null;
+        return data[selectedCategory].items[selectedItem];
+      };
+
+      const itemData = getItemData();
+
+      return (
+        <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
+          <div className="max-w-2xl mx-auto">
+            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+              <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-4">
+                <h1 className="text-xl font-bold text-white text-center">医療法等の一部を改正する法律案</h1>
+                <p className="text-blue-100 text-center text-sm mt-1">施行期日検索アプリ</p>
+              </div>
+              
+              <div className="p-4 bg-blue-50 border-b">
+                <p className="text-xs text-gray-600 mb-3 leading-relaxed">
+                  <span className="font-semibold">【改正の趣旨】</span>高齢化に伴う医療ニーズの変化や人口減少を見据え、地域での良質かつ適切な医療を効率的に提供する体制を構築するため、地域医療構想の見直し等、医師偏在是正に向けた総合的な対策の実施、これらの基盤となる医療DXの推進のために必要な措置を講ずる。
+                </p>
+                <div className="flex items-center justify-between text-sm">
+                  <span className="text-gray-600">成立日</span>
+                  <span className="font-semibold text-gray-800">令和7年12月5日</span>
+                </div>
+                <div className="flex items-center justify-between text-sm mt-1">
+                  <span className="text-gray-600">公布日</span>
+                  <span className="font-semibold text-gray-800">令和7年12月12日</span>
+                </div>
+                <div className="flex items-center justify-between text-sm mt-1">
+                  <span className="text-gray-600">原則施行日</span>
+                  <span className="font-semibold text-gray-800">令和9年4月1日</span>
+                </div>
+                <div className="mt-2 flex items-center gap-2">
+                  <span className="text-xs bg-red-100 text-red-600 px-2 py-1 rounded-full">赤字</span>
+                  <span className="text-xs text-gray-500">＝衆議院による修正部分</span>
+                </div>
+              </div>
+
+              <div className="p-4">
+                <p className="text-sm text-gray-500 mb-3">カテゴリを選択してください</p>
+                
+                {Object.entries(data).map(([catKey, category]) => (
+                  <div key={catKey} className="mb-2">
+                    <button
+                      onClick={() => handleCategoryClick(catKey)}
+                      className={`w-full text-left p-3 rounded-lg transition-all duration-200 ${
+                        selectedCategory === catKey
+                          ? 'bg-blue-600 text-white shadow-md'
+                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <span className="font-medium">{catKey}. {category.title}</span>
+                          {category.subtitle && (
+                            <p className={`text-xs mt-1 ${selectedCategory === catKey ? 'text-blue-100' : 'text-gray-500'}`}>
+                              {category.subtitle}
+                            </p>
+                          )}
+                        </div>
+                        <span className={`transform transition-transform duration-200 ${
+                          selectedCategory === catKey ? 'rotate-180' : ''
+                        }`}>▼</span>
+                      </div>
+                    </button>
+                    
+                    {selectedCategory === catKey && (
+                      <div className="mt-2 ml-4 space-y-2">
+                        {Object.entries(category.items).map(([itemKey, item]) => (
+                          <button
+                            key={itemKey}
+                            onClick={() => handleItemClick(itemKey)}
+                            className={`w-full text-left p-3 rounded-lg transition-all duration-200 ${
+                              selectedItem === itemKey
+                                ? 'bg-indigo-500 text-white shadow-md'
+                                : 'bg-white text-gray-700 hover:bg-indigo-50 border border-gray-200'
+                            }`}
+                          >
+                            <div className="flex items-center gap-2">
+                              <span>{item.title}</span>
+                              {item.isAmended && (
+                                <span className={`text-xs px-1.5 py-0.5 rounded ${
+                                  selectedItem === itemKey 
+                                    ? 'bg-red-400 text-white' 
+                                    : 'bg-red-100 text-red-600'
+                                }`}>修正</span>
+                              )}
+                            </div>
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+
+              {itemData && (
+                <div className="p-4 bg-gradient-to-r from-indigo-50 to-blue-50 border-t">
+                  <div className="flex items-center gap-2 mb-3">
+                    <h3 className="font-bold text-indigo-800">{itemData.title}</h3>
+                    {itemData.isAmended && (
+                      <span className="text-xs bg-red-100 text-red-600 px-2 py-1 rounded-full">衆議院修正</span>
+                    )}
+                  </div>
+                  
+                  <div className="mb-4 bg-green-50 border border-green-200 rounded-lg p-3">
+                    <p className="text-xs font-semibold text-green-700 mb-1">📖 かんたん解説</p>
+                    <p className="text-sm text-green-800 leading-relaxed">{itemData.summary}</p>
+                  </div>
+                  
+                  <div className="mb-4 bg-white border border-gray-200 rounded-lg p-3">
+                    <p className="text-xs font-semibold text-gray-500 mb-1">📄 原文</p>
+                    <p className="text-sm text-gray-600 whitespace-pre-line">{itemData.content}</p>
+                    {itemData.additionalInfo && (
+                      <div className="mt-3 space-y-2">
+                        {itemData.additionalInfo.map((info, i) => (
+                          <p key={i} className="text-xs text-red-600 bg-red-50 p-2 rounded border-l-2 border-red-400">
+                            {info}
+                          </p>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                  
+                  <div className="bg-white rounded-lg p-4 shadow-inner border border-indigo-200">
+                    <p className="text-xs text-gray-500 mb-2 font-semibold">📅 施行期日</p>
+                    {itemData.dates.map((d, i) => (
+                      <div key={i} className="flex items-center justify-between py-2 border-b last:border-b-0">
+                        <span className="text-lg font-bold text-indigo-600">{d.date}</span>
+                        {d.note && (
+                          <span className="text-xs bg-indigo-100 text-indigo-600 px-2 py-1 rounded-full">
+                            {d.note}
+                          </span>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+            
+            <p className="text-xs text-gray-500 text-center mt-4">
+              ※原則施行日は令和9年4月1日。一部規定は令和7年12月12日、令和8年4月1日、令和8年10月1日、または公布後一定期間内に政令で定める日に施行。
+            </p>
+          </div>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>
